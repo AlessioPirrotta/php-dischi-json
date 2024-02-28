@@ -5,7 +5,7 @@ createApp({
     return {
         title: 'ciao',
         apiUrl: 'server.php',
-        currentDisc: false,
+        currentDiscIndex: null,
         discs: []
     }
     },
@@ -21,9 +21,15 @@ createApp({
         },
 
         showDisc(index) {
-            // Ora puoi utilizzare l'indice qui come desideri
-            console.log("Indice del disco cliccato:", index);
+            this.currentDiscIndex= index
+            console.log(this.currentDiscIndex);
+        },
+
+        reloadPage() {
+            location.reload();
         }
+        
+    
 
 
     }

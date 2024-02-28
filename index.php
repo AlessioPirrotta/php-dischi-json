@@ -10,19 +10,24 @@
 </head>
 <body class="bg-dark text-light">
     <div id="app">
-        <div class="container pt-3">
+        <div class="container position-relative pt-3">
             <div class="row d-flex gap-3">
                 <div @click="() => showDisc(index)" id="card" v-for="(item, index) in discs" :key="index" class="col-4 rounded-3 p-4 d-flex flex-column align-items-center">
                     <img style="width: 80%;" :src="`${item.poster}`" alt="">
                     <h4>{{item.title}}</h4>
                     <p class="mb-2" style="font-size: 20px;">{{item.author}}</p>
                     <p>{{item.year}}</p>
-
                 </div>
-
+            </div>
+            <div @click="reloadPage" style="width: 100%; height: 100%;" id="over" v-if=" discs.length > 0 && currentDiscIndex !== null && discs[currentDiscIndex]" class="position-absolute d-flex flex-column justify-content-center align-items-center">
+            <img style="width: 30%;" :src="`${discs[currentDiscIndex].poster}`" alt="">
+                    <h4>{{ discs[currentDiscIndex].title }}</h4>
+                    <p class="mb-2" style="font-size: 20px;">{{ discs[currentDiscIndex].author}}</p>
+                    <p>{{discs[currentDiscIndex].year}}</p>
             </div>
 
         </div>
+
 
     </div>
 
